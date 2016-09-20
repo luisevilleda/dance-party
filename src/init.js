@@ -119,27 +119,30 @@ $(document).ready(function() {
 
   $('.addDancerButton').on('click', function(event) {
     // console.log('click');
-    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
-    // console.log('func name ', dancerMakerFunctionName);
-    // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window[dancerMakerFunctionName];
+    if ($('.gifselector').length) {
+      $('.gifselector').toggle();
+    } else {
+      var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+      // console.log('func name ', dancerMakerFunctionName);
+      // get the maker function for the kind of dancer we're supposed to make
+      var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    var gifChoices = ['buzz','sully','jack','banana']
+      var gifChoices = ['buzz','sully','jack','banana']
 
-    gifChoices.forEach(function(gifChoice, i){
-      var $gifbutton = $('<span class="gifselector"></span>');
-      $gifbutton.attr('id', gifChoice);
-      $('.topbar').append($gifbutton);
-      console.log($gifbutton)
-      var styleSettings = {
-        top: '32px',
-        left: (i * 125 + 400) + 'px'
-      };
-      $gifbutton.css(styleSettings);
-      $gifbutton.addClass(gifChoice);
+      gifChoices.forEach(function(gifChoice, i){
+        var $gifbutton = $('<span class="gifselector"></span>');
+        $gifbutton.attr('id', gifChoice);
+        $('.topbar').append($gifbutton);
+        console.log($gifbutton)
+        var styleSettings = {
+          top: '32px',
+          left: (i * 125 + 400) + 'px'
+        };
+        $gifbutton.css(styleSettings);
+        $gifbutton.addClass(gifChoice);
 
-    });
-
+      });
+    }
   });
 
   $('body').on('click', '.gifselector', function(event) {

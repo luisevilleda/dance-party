@@ -84,7 +84,7 @@ body, a:link, a:visited, a:active{
 .blinkyDancer{
   background: url('img/sully-sm.gif') no-repeat;
   background-size: contain;
-  border:20px solid blue;
+  /*border:20px solid blue;*/
 }
 .rainbowDancer{
   opacity:.8;
