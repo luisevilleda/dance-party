@@ -25,3 +25,12 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+.blinkyDancer{
+  border:20px solid blue;
+}
+.rainbowDancer{
+  border-radius: 0;
+}
+.morphyDancer{
+  transition: border-radius .5s;
+}
