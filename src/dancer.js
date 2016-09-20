@@ -13,7 +13,7 @@ var Dancer = function(top, left, timeBetweenSteps) {
 };
 
 Dancer.prototype.step = function step() {
-  console.log('dancer step');
+  // console.log('dancer step');
   // the basic dancer doesn't do anything interesting at all on each step,
   // it just schedules the next step
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
@@ -33,3 +33,18 @@ Dancer.prototype.setPosition = function setPosition(top, left) {
 Dancer.prototype.randomNumber = function randomNumber(lowerLimit, upperLimit) {
   return Math.floor(Math.random() * (upperLimit - lowerLimit + 1)) + lowerLimit;
 };
+
+// Dancer.prototype.lineUp = function lineUp() {
+//   var counter = 20;
+
+//   window.dancers.forEach( function linerUpper() {
+//     var styleSettings = {
+//       top: '50px',
+//       left: counter + 'px'
+//     };
+//     console.log('linerUpper Running')
+//     this.$node.css(styleSettings);
+//     counter += 20;
+//   }.bind(this));
+
+// };

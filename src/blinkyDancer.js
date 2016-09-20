@@ -22,7 +22,7 @@ BlinkyDancer.prototype.step = function step() {
 
 BlinkyDancer.prototype.danceMove = function danceMove() {
   this.$node.toggle();
-  console.log('blinky dancer dance move');
+  // console.log('blinky dancer dance move');
 };
 
 BlinkyDancer.prototype.oldStep = Dancer.prototype.step;

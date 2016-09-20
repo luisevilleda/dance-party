@@ -24,6 +24,7 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+  transition-duration: 1s;
 }
 .blinkyDancer{
   border:20px solid blue;
@@ -32,5 +33,5 @@ body, a:link, a:visited, a:active{
   border-radius: 0;
 }
 .morphyDancer{
-  transition: border-radius .5s;
+  border:40px solid blue;
 }

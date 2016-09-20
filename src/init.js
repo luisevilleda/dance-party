@@ -30,6 +30,35 @@ $(document).ready(function() {
     );
     console.log('dancer obj: ', dancer);
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
+  });
+
+
+  $('.lineUp').on('click', function(event) {
+
+    console.log('lineup click');
+
+    var counter = 50;
+
+    window.dancers.forEach( function linerUpper(ele) {
+      var styleSettings = {
+        top: '65%',
+        left: counter + 'px'
+      };
+      console.log('linerUpper Running');
+      ele.$node.css(styleSettings);
+      counter += 50;
+    });
+
+
+    // var lineMakerFunctionName = $(this).data('line-maker-function-name');
+    // console.log('func name ', lineMakerFunctionName);
+    // // get the maker function for the kind of dancer we're supposed to make
+    // var lineMakerFunction = window[lineMakerFunctionName];
+    // this.lineMakerFunctionName();
+    // // make a dancer with a random position
+
+
   });
 });
 

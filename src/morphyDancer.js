@@ -1,9 +1,9 @@
 var MorphyDancer = function MorphyDancer(top, left, timeBetweenSteps) {
-  Dancer.call(this, top, left, timeBetweenSteps);
+  RainbowDancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('morphyDancer');
 };
 
-MorphyDancer.prototype = Object.create(Dancer.prototype);
+MorphyDancer.prototype = Object.create(RainbowDancer.prototype);
 MorphyDancer.prototype.constructor = MorphyDancer;
 MorphyDancer.prototype.addStep = RainbowDancer.prototype.danceMove;
 MorphyDancer.prototype.oldStep = Dancer.prototype.step;
@@ -17,10 +17,9 @@ MorphyDancer.prototype.step = function step() {
 };
 
 MorphyDancer.prototype.danceMove = function danceMove() {
-  console.log('morphy dance');
+  // console.log('morphy dance');
   var corners = [];
   for (var i = 0; i < 4; i++) {
-    console.log(1);
     corners.push(this.randomNumber(0, 50));
   }
 
