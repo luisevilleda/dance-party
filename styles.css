@@ -6,7 +6,7 @@ body, html{
   height:100%;
 }
 body{
-  background: url('img/defaultfloor.jpg') no-repeat center center fixed;
+  background: url('img/dancefloor.jpg') no-repeat center center fixed;
   background-size: cover;
   margin: 0px;
   background-color:#444;
@@ -28,9 +28,9 @@ body, a:link, a:visited, a:active{
 }
 .dancefloor{
   width:90%;
-  /*border: 1px solid red;*/
-  margin:auto;
-  height:75%;
+  border: 1px solid red;
+  margin: 550px auto 0px auto;
+  height:25%;
 }
 .dancer{
   background-image: url('img/giphy.gif');
@@ -42,17 +42,21 @@ body, a:link, a:visited, a:active{
   /*border:10px solid red;*/
   /*border-radius:10px;*/
   position:absolute;
-  transition: top 4s, left 4s, border-color .5s, border-radius .5s;
+  /*transition: border-color .5s, border-radius .5s;*/
   /*transition-duration: 4s;*/
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-out;
 }
 .blinkyDancer{
+  background: url('img/sully-sm.gif') no-repeat;
+  background-size: contain;
   border:20px solid blue;
 }
 .rainbowDancer{
+  background-image: url('img/jack-sm.gif');
   border-radius: 0;
 }
 .morphyDancer{
+  background-image: url('img/buzz-sm.gif');
   border:40px solid blue;
 }
 .addMusicButton{
@@ -68,6 +72,28 @@ body, a:link, a:visited, a:active{
 .addMusicButton:hover{
   border-left: 40px solid green;
 }
+.bubble{
+  /*background-color: #eeffff;*/
+  background: skyblue;
+  width:7px;
+  height:7px;
+  /*margin: 50px auto;*/
+  border-radius: 50%;
+  border: 2px solid skyblue;
+  box-shadow: 0 0 10px #9ecaed;
+  opacity: .5;
+}
+.beachball{
+  background-color: #eeffff;
+  width:25px;
+  height:25px;
+  margin: 150px auto;
+  border-radius: 50%;
+  /*border: 3px solid skyblue;*/
+  /*box-shadow: 2px 2px 5px black;*/
+  /*opacity: .5;*/
+}
+
 audio{
   margin-left:10px;
   margin-top:50px;

@@ -8,6 +8,7 @@
     <script src="src/blinkyDancer.js"></script>
     <script src="src/rainbowDancer.js"></script>
     <script src="src/morphyDancer.js"></script>
+    <script src="src/bubbleDancer.js"></script>
   </head>
   <body>
     <div class="topbar">
@@ -22,13 +23,22 @@
 
       
     </div>
+    <!-- <div class = 'bubble'></div> -->
+    <!-- <div class = 'beachball'></div> -->
+      <audio controls>
+          <source src="music/rick.mp3" type="audio/mpeg">
+      </audio>
 
     <div class='dancefloor'>
 
     </div>
-      <audio controls>
-          <source src="music/rick.mp3" type="audio/mpeg">
-      </audio>
     <script src="src/init.js"></script>
+    <script>
+      $( document ).on( "mousemove", function( event ) {
+        pointerX = event.pageX;
+        pointerY = event.pageY;
+
+      });
+    </script>
   </body>
 </html>

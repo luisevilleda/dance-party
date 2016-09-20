@@ -1,11 +1,13 @@
 // Creates and returns a new dancer object that can step
 var randMove = false;
 var Dancer = function(top, left, timeBetweenSteps) {
-  console.log('NEW INSTANCE');
+  // console.log('NEW INSTANCE');
   // use jQuery to create an HTML <span> tag
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $('<span class="dancer"></span>');
   this.step();
+
+
   
 
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
@@ -24,17 +26,21 @@ Dancer.prototype.step = function step() {
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
-Dancer.prototype.setPosition = function setPosition(top, left) {
+Dancer.prototype.setPosition = function setPosition(top, left, transTime) {
   // Use css top and left properties to position our <span> tag
   // where it belongs on the page. See http://api.jquery.com/css/
   //
+  transTime = transTime || 4;
   var styleSettings = {
     top: top,
-    left: left
+    left: left,
+    //transition-time: top time/velY +'s', left time/velX +'s'
+    'transition-duration': transTime + 's'
+
   };
   this.$node.css(styleSettings);
 };
-console.log($(window).width());
+// console.log($(window).width());
 
 Dancer.prototype.randomMove = function randomMove() {
   var left = Dancer.prototype.randomNumber(100, $(window).width() - 100);
