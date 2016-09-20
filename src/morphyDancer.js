@@ -1,16 +1,18 @@
 var MorphyDancer = function MorphyDancer(top, left, timeBetweenSteps) {
-  RainbowDancer.call(this, top, left, timeBetweenSteps);
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('morphyDancer');
 };
 
-MorphyDancer.prototype = Object.create(RainbowDancer.prototype);
+MorphyDancer.prototype = Object.create(Dancer.prototype);
 MorphyDancer.prototype.constructor = MorphyDancer;
-MorphyDancer.prototype.oldStep = this.prototype.step;
+MorphyDancer.prototype.addStep = RainbowDancer.prototype.danceMove;
+MorphyDancer.prototype.oldStep = Dancer.prototype.step;
 
 MorphyDancer.prototype.step = function step() {
   var _this = this;
   _this.danceMove();
-  this.oldStep();
+  _this.addStep();
+  // this.oldStep();
   _this.oldStep();
 };
 
