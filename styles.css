@@ -26,17 +26,25 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+.dancefloor{
+  width:90%;
+  /*border: 1px solid red;*/
+  margin:auto;
+  height:75%;
+}
 .dancer{
   background-image: url('img/giphy.gif');
   background-size: contain;
-  width:300px;
-  height:300px;
+  width:100px;
+  height:100px;
   max-width: 100%;
   max-height: 100%;
   /*border:10px solid red;*/
   /*border-radius:10px;*/
   position:absolute;
-  transition-duration: 1s;
+  transition: top 4s, left 4s, border-color .5s, border-radius .5s;
+  /*transition-duration: 4s;*/
+  transition-timing-function: ease-in-out;
 }
 .blinkyDancer{
   border:20px solid blue;
@@ -46,4 +54,21 @@ body, a:link, a:visited, a:active{
 }
 .morphyDancer{
   border:40px solid blue;
+}
+.addMusicButton{
+  position:absolute;
+  top:50px;
+  left:50px;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-left: 40px solid white;
+  border-bottom: 20px solid transparent;
+}
+.addMusicButton:hover{
+  border-left: 40px solid green;
+}
+audio{
+  margin-left:10px;
+  margin-top:50px;
 }
