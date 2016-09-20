@@ -15,7 +15,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .addFancyDancer{
   padding:5px 12px;
   float:right;
 }
@@ -28,18 +28,47 @@ body, a:link, a:visited, a:active{
 }
 .danceroof{
   width:90%;
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
   margin: 50px auto 0px auto;
   height:35%;
 }
 .dancefloor{
   width:90%;
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   margin: 110px auto 0px auto;
   height:25%;
 }
+.gifselector{
+  width:200px;
+  height:100px;
+  position:absolute;
+  background-color:white;
+  transition-duration: .5s;
+}
+.gifselector:hover{
+  width:250px;
+  height:125px;
+  /*position:absolute;*/
+
+}
+.sully{
+  background: url('img/sully-sm.gif') no-repeat;
+  background-size: contain;
+}
+.jack{
+  background: url('img/jack-sm.gif') no-repeat;
+  background-size: contain;
+}
+.buzz{
+  background: url('img/buzz-sm.gif') no-repeat;
+  background-size: contain;
+}
+.banana{
+  background: url('img/giphy.gif') no-repeat;
+  background-size: contain;
+}
 .dancer{
-  background-image: url('img/giphy.gif');
+  /*background-image: url('img/giphy.gif');*/
   background-size: contain;
   width:100px;
   height:100px;
@@ -58,12 +87,16 @@ body, a:link, a:visited, a:active{
   border:20px solid blue;
 }
 .rainbowDancer{
-  /*background-image: url('img/jack-sm.gif');*/
-  border-radius: 0;
+  opacity:.8;
+  width:20px;
+  height: 20px;
+  background-image: url('img/rainbowswirl.gif');
+  border-radius: 50%;
+  border:5px solid red;
 }
 .morphyDancer{
-  /*background-image: url('img/buzz-sm.gif');*/
-  border:40px solid blue;
+  background-image: url('img/morphyswirl.gif');
+  border:5px solid blue;
 }
 .addMusicButton{
   position:absolute;

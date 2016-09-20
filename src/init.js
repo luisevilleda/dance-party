@@ -80,43 +80,73 @@ $(document).ready(function() {
 
   });
 
-  $('.addDancerButton').on('click', function(event) {
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
+    // make a dancer with a random position
+  var addDancer = function addDancer (dancerMakerFunction, dancerMakerFunctionName, gifClass) {
+    var whereToAppend = '.dancefloor';
+    var heightOffset = 500;
+    var randFactor = 2000;
 
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
+    if (dancerMakerFunctionName === 'MorphyDancer' || dancerMakerFunctionName === 'RainbowDancer') {
+      whereToAppend = '.danceroof';
+      heightOffset = 50;
+      randFactor = 4000;
+    }
+
+    var dancer = new dancerMakerFunction(
+      $(whereToAppend).height() * Math.random() + heightOffset,
+      $(whereToAppend).width() * Math.random(),
+      (Math.random() + .25) * randFactor
+    );
+    // console.log('dancer obj: ', dancer);
+    $(whereToAppend).append(dancer.$node);
+    gifClass ? dancer.$node.addClass(gifClass) : null;
+    window.dancers.push(dancer);
+  };
+
+  $('.addFancyDancer').on('click', function(event) {
     // console.log('click');
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     // console.log('func name ', dancerMakerFunctionName);
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
-    // make a dancer with a random position
-    var whereToAppend = '.dancefloor';
-    var heightOffset = 500;
+    addDancer(dancerMakerFunction, dancerMakerFunctionName);
+      
+    // });
 
-    if (dancerMakerFunctionName === 'MorphyDancer' ) {
-      whereToAppend = '.danceroof';
-      heightOffset = 50;
-    }
+  });
 
-    var dancer = new dancerMakerFunction(
-      $(whereToAppend).height() * Math.random() + heightOffset,
-      $(whereToAppend).width() * Math.random(),
-      (Math.random() + .25) * 4000
-    );
-    // console.log('dancer obj: ', dancer);
-    $(whereToAppend).append(dancer.$node);
-    window.dancers.push(dancer);
+
+  $('.addDancerButton').on('click', function(event) {
+    // console.log('click');
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    // console.log('func name ', dancerMakerFunctionName);
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    var gifChoices = ['buzz','sully','jack','banana']
+
+    gifChoices.forEach(function(gifChoice, i){
+      var $gifbutton = $('<span class="gifselector"></span>');
+      $gifbutton.attr('id', gifChoice);
+      $('.topbar').append($gifbutton);
+      console.log($gifbutton)
+      var styleSettings = {
+        top: '32px',
+        left: (i * 125 + 400) + 'px'
+      };
+      $gifbutton.css(styleSettings);
+      $gifbutton.addClass(gifChoice);
+
+    });
+
+  });
+
+  $('body').on('click', '.gifselector', function(event) {
+    var gifClass = event.target.id;
+    addDancer(window['Dancer'], 'Dancer', gifClass);
+    // $('.gifselector').fadeOut(700);
+    // console.log(x)
   });
 
 

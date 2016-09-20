@@ -14,6 +14,13 @@ MorphyDancer.prototype.step = function step() {
   _this.addStep();
   // this.oldStep();
   _this.oldStep();
+  _this.randomMove();
+};
+
+MorphyDancer.prototype.randomMove = function randomMove() {
+  var left = Dancer.prototype.randomNumber(100, $(window).width() - 100);
+  var top = Dancer.prototype.randomNumber(100, $(window).height() - 500);
+  this.setPosition(top, left);
 };
 
 MorphyDancer.prototype.danceMove = function danceMove() {

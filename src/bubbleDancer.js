@@ -19,7 +19,7 @@ BubbleDancer.prototype.step = function step() {
 BubbleDancer.prototype.danceMove = function danceMove(transTime) {
   var randHeight = danceHeight * Math.random();
   var randOpac = Math.random();
-  console.log('bbl dance', this.timeBetweenSteps, randHeight)
+  // console.log('bbl dance', this.timeBetweenSteps, randHeight)
   var styleSettings = {
     top: randHeight + 'px',
     //transition-time: top time/velY +'s', left time/velX +'s'
@@ -40,7 +40,7 @@ BubbleDancer.prototype.kill = function kill() {
   // }
   setTimeout(function() {
     
-    console.log('inside kill', $('bubble' + this.bubCounter))
+    // console.log('inside kill', $('bubble' + this.bubCounter))
     // var element = document.getElementById('bubble' + this.bubCounter);
     $('#bubble' + this.bubCounter).remove();
   }.bind(this), this.timeBetweenSteps + 2500);
