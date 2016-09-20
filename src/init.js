@@ -8,7 +8,10 @@ var baseTrans = 5;
 var velCap = 25;
 var danceWidth = $(window).width(), danceHeight = $(window).height();
 
-
+$( document ).on( "mousemove", function( event ) {
+  pointerX = event.pageX;
+  pointerY = event.pageY;
+});
 
 $(document).ready(function() {
   window.dancers = [];
@@ -24,28 +27,29 @@ $(document).ready(function() {
     }, 100);
   }();
 
-  //Bubble Gen
-  // var bubbleGen = function bubbleGen() {
-  //   var bubCounter = 0;
-  //   setInterval(function() {
-  //     bubCounter++;
-  //     var bubble = new BubbleDancer(
-  //     $(window).height(),
-  //     $(".dancefloor").width() * Math.random(),
-  //     (Math.random() + .5) * 7000,
-  //     bubCounter
-  //   );
-      
-  //   // console.log('bubble ');
-  //     $('body').append(bubble.$node);
-  //     bubble.$node.attr('id', 'bubble' + bubCounter);
-  //     console.log()
-  //   }
+  // Bubble Gen
+  var bubbleGen = function bubbleGen() {
+    var bubCounter = 0;
+    setInterval(function() {
+      bubCounter++;
+      var bubble = new BubbleDancer(
+      $(window).height() - 25,
+      $('.dancefloor').width() * Math.random(),
+      (Math.random() + .5) * 7000,
+      bubCounter
 
-  //   , 100);
-  //   window.bubbles.push(bubble);
+    );
+      (window.bubbles).push(bubble);
 
-  // }();
+    // console.log('bubble ');
+      $('body').append(bubble.$node);
+      bubble.$node.attr('id', 'bubble' + bubCounter);
+      // console.log();
+    }
+
+    , 100);
+
+  }();
 
 
 
@@ -97,14 +101,21 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    var whereToAppend = '.dancefloor';
+    var heightOffset = 500;
+
+    if (dancerMakerFunctionName === 'MorphyDancer' ) {
+      whereToAppend = '.danceroof';
+      heightOffset = 50;
+    }
 
     var dancer = new dancerMakerFunction(
-      $(".dancefloor").height() * Math.random() + 550,
-      $(".dancefloor").width() * Math.random(),
+      $(whereToAppend).height() * Math.random() + heightOffset,
+      $(whereToAppend).width() * Math.random(),
       (Math.random() + .25) * 4000
     );
     // console.log('dancer obj: ', dancer);
-    $('.dancefloor').append(dancer.$node);
+    $(whereToAppend).append(dancer.$node);
     window.dancers.push(dancer);
   });
 

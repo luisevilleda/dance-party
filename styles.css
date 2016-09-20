@@ -26,10 +26,16 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+.danceroof{
+  width:90%;
+  border: 1px solid blue;
+  margin: 50px auto 0px auto;
+  height:35%;
+}
 .dancefloor{
   width:90%;
   border: 1px solid red;
-  margin: 550px auto 0px auto;
+  margin: 110px auto 0px auto;
   height:25%;
 }
 .dancer{
@@ -52,11 +58,11 @@ body, a:link, a:visited, a:active{
   border:20px solid blue;
 }
 .rainbowDancer{
-  background-image: url('img/jack-sm.gif');
+  /*background-image: url('img/jack-sm.gif');*/
   border-radius: 0;
 }
 .morphyDancer{
-  background-image: url('img/buzz-sm.gif');
+  /*background-image: url('img/buzz-sm.gif');*/
   border:40px solid blue;
 }
 .addMusicButton{

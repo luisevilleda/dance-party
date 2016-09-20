@@ -30,10 +30,18 @@ BubbleDancer.prototype.danceMove = function danceMove(transTime) {
 };
 
 BubbleDancer.prototype.kill = function kill() {
-  console.log('kill')
+  // console.log('kill:' (window.bubbles).length);
+
+  // // this.bubCounter;
+  // if (window.bubbles.length > 10) {
+  //   // var bub = (window.bubbles).shift();
+  //   // console.log('kill:', bub);
+  //   this.remove();
+  // }
   setTimeout(function() {
-    console.log('inside kill',this.bubCounter)
-    var element = document.getElementById('bubble' + this.bubCounter);
-    element.parentNode.removeChild(element);
-  }, this.timeBetweenSteps - 50);
+    
+    console.log('inside kill', $('bubble' + this.bubCounter))
+    // var element = document.getElementById('bubble' + this.bubCounter);
+    $('#bubble' + this.bubCounter).remove();
+  }.bind(this), this.timeBetweenSteps + 2500);
 };
