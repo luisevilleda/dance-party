@@ -17,9 +17,11 @@ RainbowDancer.prototype.danceMove = function danceMove() {
   var red = this.randomNumber(0, 255);
   var blue = this.randomNumber(0, 255);
   var green = this.randomNumber(0, 255);
+  var color = 'rgb(' + red + ',' + green + ',' + blue + ')'
 
   var styleSettings = {
-    'border-color': 'rgb(' + red + ',' + green + ',' + blue + ')'
+    'border-color': color,
+    'box-shadow': '0 0 3px 3px ' + color 
   };
 
   this.$node.css(styleSettings);

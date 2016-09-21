@@ -3,15 +3,18 @@ var BubbleDancer = function BubbleDancer(top, left, timeBetweenSteps, bubCounter
   this.$node.addClass('bubble');
   this.timeBetweenSteps = timeBetweenSteps;
   this.bubCounter = bubCounter;
+  this.left = left;
+  this.top = top;
 };
 
 BubbleDancer.prototype = Object.create(Dancer.prototype);
 BubbleDancer.prototype.constructor = BubbleDancer;
-
+BubbleDancer.prototype.colorStep = RainbowDancer.prototype.danceMove;
 BubbleDancer.prototype.oldStep = Dancer.prototype.step;
 
 BubbleDancer.prototype.step = function step() {
   this.oldStep();
+  this.colorStep();
   this.danceMove();
   this.kill();
 };
@@ -23,25 +26,28 @@ BubbleDancer.prototype.danceMove = function danceMove(transTime) {
   var styleSettings = {
     top: randHeight + 'px',
     //transition-time: top time/velY +'s', left time/velX +'s'
-    'transition-duration':  '3s',
+    'transition-duration': transTime + 's',
     opacity: randOpac
   };
   this.$node.css(styleSettings);
 };
 
 BubbleDancer.prototype.kill = function kill() {
-  // console.log('kill:' (window.bubbles).length);
+  var randOpac = Math.random();
 
-  // // this.bubCounter;
-  // if (window.bubbles.length > 10) {
-  //   // var bub = (window.bubbles).shift();
-  //   // console.log('kill:', bub);
-  //   this.remove();
-  // }
   setTimeout(function() {
-    
-    // console.log('inside kill', $('bubble' + this.bubCounter))
-    // var element = document.getElementById('bubble' + this.bubCounter);
-    $('#bubble' + this.bubCounter).remove();
+    var styleSettings = {
+      width: '20px',
+      height: '20px',
+      left: this.left + '- 10px',
+      top: this.top + '- 10px',
+      'transition-duration': '.1s',
+      // opacity: randOpac
+    };
+    this.$node.css(styleSettings);
+    $('#bubble' + this.bubCounter).fadeOut(100);
+    setTimeout(function() {
+      $('#bubble' + this.bubCounter).remove();
+    }.bind(this), 500);
   }.bind(this), this.timeBetweenSteps + 2500);
 };

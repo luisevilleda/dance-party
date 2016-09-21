@@ -1,5 +1,7 @@
 html{
-
+font-family: 'Bangers', sans-serif;
+letter-spacing: 1px;
+/*font-family: 'Passion One', cursive;*/
 }
 
 body, html{
@@ -15,8 +17,11 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+a:hover{
+  color:skyblue;
+}
 .title, .addDancerButton, .addFancyDancer{
-  padding:5px 12px;
+  padding:6px 12px;
   float:right;
 }
 .topbar{
@@ -31,6 +36,18 @@ body, a:link, a:visited, a:active{
   /*border: 1px solid blue;*/
   margin: 50px auto 0px auto;
   height:35%;
+}
+.getReady{
+  margin: 175px 0 0 0;
+  text-align: center;
+  font-size: 50px;
+  color:red;
+  transition-duration: .5s;
+}
+.getReady:hover{
+  font-size:75px;
+  color:pink;
+  text-shadow: 2px 2px 9px white;
 }
 .dancefloor{
   width:90%;

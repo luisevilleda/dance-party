@@ -100,6 +100,11 @@ $(document).ready(function() {
     // console.log('dancer obj: ', dancer);
     $(whereToAppend).append(dancer.$node);
     gifClass ? dancer.$node.addClass(gifClass) : null;
+    //ADD CSS TO SCALE SULLY
+    if (gifClass === 'sully') {
+      var sizeCSS = {width: 350+'px', height: 350 + 'px'};
+      dancer.$node.css(sizeCSS);
+    }
     window.dancers.push(dancer);
   };
 

@@ -7,9 +7,6 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.$node = $('<span class="dancer"></span>');
   this.step();
 
-
-  
-
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
   this.setPosition(top, left);
@@ -34,6 +31,7 @@ Dancer.prototype.setPosition = function setPosition(top, left, transTime) {
   var styleSettings = {
     top: top,
     left: left,
+    'z-index': top,
     //transition-time: top time/velY +'s', left time/velX +'s'
     'transition-duration': transTime + 's'
 
